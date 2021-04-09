@@ -17,12 +17,9 @@ def mult(x):
     some_num={x}
     return render_template('index.html',x=int(x))
 
-@app.route('/play/<color>')
-def color(color):
-    color=[
-        "red","blue","green","yellow","orange","brown","black","pink","purple","cyan","magenta","teal","gray"
-    ]
-    return render_template('index.html', color=int(color))
+@app.route('/play/<int:x>/<string:color>')
+def color(x,color):
+    return render_template('index.html', x=int(x),new_color=color)
 
 @app.errorhandler(404)
 def function_name(error):
